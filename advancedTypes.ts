@@ -31,3 +31,36 @@ const aUserWithDetails: UserWithDetails = {
     zipCode: "40-123",
   },
 };
+
+// create a type based on another
+type UserWithoutRole = Pick<User, "name" | "password">;
+type UserWithoutRoleAlso = Omit<User, "role">;
+
+// records
+type UsersByRole = Record<UserRole, User[]>;
+const usersByRole:UsersByRole {
+  admin: [{ name: "adam", role: "admin", password: "querty" }],
+  users: [],
+  guest: [],
+};
+// abstract another way of type of objects.
+
+
+const User:{ id:number; name:string; email:string};
+const Order:{
+orderId:number;
+    userId:number;
+    items:[{
+        productId:number;
+        quantity: number;
+    }]
+}
+type Admin= User & {
+    role:"Admin";
+    permissions:string[];
+}
+const canProcessOrder=(user:User|Admin)=>{
+    if(user.includes(role==="Admin"))){
+        console.log()
+    }
+}
