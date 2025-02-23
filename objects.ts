@@ -1,17 +1,18 @@
 // object type
-// const person: Person = {
-//   // isAdmin? means if it is there it would be a boolean (Optional)
-//   name: "adam",
-//   age: 15,
-// };
-/* we have to make sure the field that we defiened the type are found in the object  */
-// const anotherPerson: Person = {
-//   name: "Tycoon",
-//   age: 25,
-// };
-// we can also create an universal type to get rid of the repetition of the type.
+const person: Person = {
+  // isAdmin? means if it is there it would be a boolean (Optional)
+  name: "adam",
+  age: 15,
+};
 
-//type Person = { name: string; age: number; isAdmin?: boolean }; // first way
+/* we have to make sure the field that we defiened the type are found in the object  */
+const anotherPerson: Person = {
+  name: "Tycoon",
+  age: 25,
+};
+//we can also create an universal type to get rid of the repetition of the type.
+
+type Person = { name: string; age: number; isAdmin?: boolean }; // first way
 
 /**
 interface Person {
