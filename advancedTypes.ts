@@ -38,29 +38,37 @@ type UserWithoutRoleAlso = Omit<User, "role">;
 
 // records
 type UsersByRole = Record<UserRole, User[]>;
-const usersByRole:UsersByRole {
+const usersByRole: UsersByRole = {
   admin: [{ name: "adam", role: "admin", password: "querty" }],
-  users: [],
-  guest: [],
+  user: [{ name: "Reed", role: "user", password: "HelloWorld123" }],
+  guest: [{ name: "Manick", role: "guest", password: "@Dativa1981" }],
 };
 // abstract another way of type of objects.
 
+// type User={ id:number; name:string; email:string};
 
-const User:{ id:number; name:string; email:string};
-const Order:{
-orderId:number;
-    userId:number;
-    items:[{
-        productId:number;
-        quantity: number;
-    }]
-}
-type Admin= User & {
-    role:"Admin";
-    permissions:string[];
-}
-const canProcessOrder=(user:User|Admin)=>{
-    if(user.includes(role==="Admin"))){
-        console.log()
-    }
-}
+// type Order={
+// orderId:number;
+//     userId:number;
+//     items:{
+//         productId:number;
+//         quantity: number;
+// }[];
+// };
+
+// type Admin= User & {
+//     role:"Admin";
+//     permissions:string[];
+// }
+// const canProcessOrder=(user:User|Admin)=>{
+//     if(  "permissions" in user && user.permissions.includes("process-order") ){
+//         console.log(true)
+//     }
+//     else{
+//         console.log(false)
+//     }
+// }
+// const userOne: Admin={
+//     id:1,name:"Tycoon", email:"kabuzitycoon@gmail.com", role:"Admin",permissions:["process-orders","teach", "buy-groceries"]
+// }
+// canProcessOrder(userOne);
