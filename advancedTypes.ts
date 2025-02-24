@@ -72,3 +72,46 @@ const usersByRole: UsersByRole = {
 //     id:1,name:"Tycoon", email:"kabuzitycoon@gmail.com", role:"Admin",permissions:["process-orders","teach", "buy-groceries"]
 // }
 // canProcessOrder(userOne);
+
+// Generic type: this works like parameters and arguments
+
+type FormValue<T, U, K = string> = { value: T; age: U; isConnected: K };
+
+const form1: FormValue<string, number> = {
+  value: "Hello World",
+  age: 12,
+  isConnected: "Boss",
+};
+
+//-----------------------------------------------------------------------------------------------------------------------------
+// the value type can change based on the argument type we provide, we can also assign a default value:
+type Product<T> = {
+  id: number;
+  name: string;
+  data: T;
+};
+type WareHouse<T> = Product<T>[];
+
+const addProduct = <T>(WareHouse: WareHouse<T>, product: Product<T>) => {
+  WareHouse.push(product);
+  return WareHouse;
+};
+let firstProduct: Product<Number> = {
+  id: 1,
+  name: "Macbook",
+  data: 123,
+};
+
+const findProductById = <T>(warehouse: WareHouse<T>, id: number) => {
+  return warehouse.filter((product) => product.id === id);
+};
+
+let secondProduct: Product<number> = {
+  id: 2,
+  name: "Macbook",
+  data: 2,
+};
+let store: WareHouse<number> = [];
+console.log(findProductById(store, 1));
+console.log(addProduct(store, firstProduct));
+// extends object
